@@ -1,0 +1,3 @@
+﻿  solvers.cpp
+C:\dev\NSSolver\NSSolver\src\solvers.cpp(99,45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  NSSolver.vcxproj -> C:\dev\NSSolver\bin\Debug-x64\mgsolver.exe
