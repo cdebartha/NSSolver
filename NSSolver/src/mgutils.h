@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "CooMatrix.h"
-#include "utils.h"
+#include "sputils.h"
 
 CooMatrix computeA(int N);
 

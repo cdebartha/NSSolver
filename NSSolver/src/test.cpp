@@ -2,7 +2,7 @@
 #include <vector>
 #include <chrono>
 #include "CooMatrix.h"
-#include "utils.h"
+#include "sputils.h"
 #include "solvers.h"
 #include "mgutils.h"
 

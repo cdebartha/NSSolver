@@ -3,13 +3,18 @@
 CooMatrix::CooMatrix(unsigned int nrows, unsigned int ncols, unsigned int nnz, std::vector<int>& rowind, std::vector<int>& colind, std::vector<double>& val):
 	nrows_(nrows), ncols_(ncols), nnz_(nnz), rowind_(rowind), colind_(colind), val_(val)
 {
-	std::cout << "CooMatrix created." << std::endl;
+//	std::cout << "CooMatrix created." << std::endl;
 }
 
 CooMatrix::CooMatrix(const CooMatrix& other):
 	nrows_(other.nrows_), ncols_(other.ncols_), nnz_(other.nnz_), rowind_(other.rowind_), colind_(other.colind_), val_(other.val_)
 {
-	std::cout << "CooMatrix copied." << std::endl;
+//	std::cout << "CooMatrix copied." << std::endl;
+}
+
+CooMatrix::~CooMatrix()
+{
+//	std::cout << "CooMatrix destructed." << std::endl;
 }
 
 CooMatrix& CooMatrix::operator = (const CooMatrix& other)
@@ -20,7 +25,7 @@ CooMatrix& CooMatrix::operator = (const CooMatrix& other)
 	this->rowind_ = other.rowind_;
 	this->colind_ = other.colind_;
 	this->val_ = other.val_;
-	std::cout << "CooMatrix assigned." << std::endl;
+//	std::cout << "CooMatrix assigned." << std::endl;
 	return *this;
 }
 

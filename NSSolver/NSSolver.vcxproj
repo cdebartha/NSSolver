@@ -23,13 +23,13 @@
     <ClCompile Include="src\mgutils.cpp" />
     <ClCompile Include="src\solvers.cpp" />
     <ClCompile Include="src\test.cpp" />
-    <ClCompile Include="src\utils.cpp" />
+    <ClCompile Include="src\sputils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CooMatrix.h" />
     <ClInclude Include="src\mgutils.h" />
     <ClInclude Include="src\solvers.h" />
-    <ClInclude Include="src\utils.h" />
+    <ClInclude Include="src\sputils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

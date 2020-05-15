@@ -2,7 +2,7 @@
 #include <cmath>
 #include <vector>
 #include "CooMatrix.h"
-#include "utils.h"
+#include "sputils.h"
 
 double computeRMS(std::vector<double>& residual)
 {

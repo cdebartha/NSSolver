@@ -18,13 +18,13 @@
     <ClInclude Include="src\CooMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\solvers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\mgutils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sputils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,13 +35,13 @@
     <ClCompile Include="src\test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\solvers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\mgutils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sputils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

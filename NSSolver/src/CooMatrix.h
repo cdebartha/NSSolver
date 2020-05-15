@@ -19,7 +19,7 @@ public:
 	//Copy Constructor
 	CooMatrix(const CooMatrix& other);
 	//Destructor
-	~CooMatrix() {};
+	~CooMatrix();
 
 	//Assignment Operator
 	CooMatrix& operator = (const CooMatrix& other);
