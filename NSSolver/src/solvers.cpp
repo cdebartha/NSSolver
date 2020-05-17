@@ -16,12 +16,12 @@ double computeRMS(std::vector<double>& residual)
 
 std::vector<double> computeResidual(CooMatrix& A, std::vector<double>& b, std::vector<double>& x)
 {
-	std::vector<double> residual;
-	residual.reserve(A.dim(0));
+	std::vector<double> residual(A.dim(0));
+//	residual.reserve(A.dim(0));
 	int inz = 0;
 	int Annz = A.nnz();
 	for (int i = 0; i < A.dim(0); ++i) {
-		double temp = 0;
+		double temp = 0.0;
 		while (A.row(inz) == i) {
 			temp += A.data(inz) * x[A.col(inz)];
 			inz++;
@@ -29,7 +29,8 @@ std::vector<double> computeResidual(CooMatrix& A, std::vector<double>& b, std::v
 				break;
 			}
 		}
-		residual.push_back(b[i] - temp);
+//		residual.push_back(b[i] - temp);
+		residual[i] = b[i] - temp;
 	}
 	return residual;
 }
@@ -38,12 +39,12 @@ void gauss_seidel_update(CooMatrix& A, std::vector<double>& b, std::vector<doubl
 	int inz = 0;
 	int Annz = A.nnz();
 	for (int i = 0; i < A.dim(0); i++) {
-		double temp = 0;
-		int idiag = 0;
+		double temp = 0.0;
+		double diag = 0.0;
 		while (A.row(inz) == i) {
-			if (A.col(inz) == A.row(inz)) {
+			if (A.col(inz) == i) {
 				temp += b[i];
-				idiag = inz;
+				diag = A.data(inz);
 				inz++;
 				if (inz == Annz) {
 					break;
@@ -57,20 +58,18 @@ void gauss_seidel_update(CooMatrix& A, std::vector<double>& b, std::vector<doubl
 				}
 			}
 		}
-		x[i] = (1 / A.data(idiag)) * temp;
+		x[i] = (1.0 / diag) * temp;
 	}
 }
 
 void gseidel(CooMatrix& A, std::vector<double>& b, std::vector<double>& x, int maxiters = 10000, double tol = 1e-6) {
 	int iteration = 0;
 	double error = tol + 1;
-	size_t neq = x.size();
-	std::vector<double> residual;
-	residual.reserve(neq);
+//	size_t neq = x.size();
+//	std::vector<double> residual;
 	while (iteration < maxiters && error > tol) {
 		gauss_seidel_update(A, b, x);
-		residual = computeResidual(A, b, x);
-		error = computeRMS(residual);
+		error = computeRMS((std::vector<double>&)computeResidual(A, b, x));
 		iteration = iteration + 1;
 //		std::cout << "Iteration = " << iteration << "; |Residual| = " << error << std::endl;
 	}
@@ -96,7 +95,7 @@ void mg_update(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<do
 
 	//	cout << "Restriction 1 done for level " << level << endl;
 
-	std::vector<double> eps = zeros(resc.size());
+	std::vector<double> eps = zeros((int)resc.size());
 
 	if (level == nLevels - 2) {
 		gseidel(A[level + 1], resc, eps);
@@ -144,13 +143,13 @@ void multigrid(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<do
 	double error = tol + 1;
 	size_t neq = x.size();
 	size_t level0 = 0;
-	std::vector<double> residual;
+//	std::vector<double> residual;
 	size_t nLevels = P.size() + 1;
 	std::cout << "Initiating multigrid solver for " << nLevels << " levels..." << std::endl;
 	while (iteration < maxiters && error > tol) {
 		mg_update(A, b, x, P, R, level0, nLevels);
-		residual = computeResidual(A[0], b, x);
-		error = computeRMS(residual);
+//		std::vector<double> residual = computeResidual(A[0], b, x);
+		error = computeRMS((std::vector<double>&)computeResidual(A[0], b, x));
 		iteration = iteration + 1;
 		std::cout << "Iteration = " << iteration << "; |Residual| = " << error << std::endl;
 	}

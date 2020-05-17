@@ -44,8 +44,8 @@ int CooMatrix::dim(int i)
 
 std::vector<double> CooMatrix::operator * (const std::vector<double>& other)
 {
-	std::vector<double> product;
-	product.reserve(this->nrows_);
+	std::vector<double> product(this->nrows_);
+//	product.reserve(this->nrows_);
 	unsigned int inz = 0;
 	for (unsigned int i = 0; i < this->nrows_; ++i) {
 		double temp = 0.0;
@@ -56,7 +56,7 @@ std::vector<double> CooMatrix::operator * (const std::vector<double>& other)
 				break;
 			}
 		}
-		product.push_back(temp);
+		product[i] = temp;
 	}
 	return product;
 }

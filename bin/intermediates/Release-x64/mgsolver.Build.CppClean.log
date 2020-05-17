@@ -1,10 +1,9 @@
 c:\dev\nssolver\bin\intermediates\release-x64\vc142.pdb
-c:\dev\nssolver\bin\intermediates\release-x64\utils.obj
+c:\dev\nssolver\bin\intermediates\release-x64\sputils.obj
 c:\dev\nssolver\bin\intermediates\release-x64\test.obj
 c:\dev\nssolver\bin\intermediates\release-x64\solvers.obj
-c:\dev\nssolver\bin\intermediates\release-x64\coomatrix.obj
 c:\dev\nssolver\bin\intermediates\release-x64\mgutils.obj
-c:\dev\nssolver\bin\intermediates\release-x64\sputils.obj
+c:\dev\nssolver\bin\intermediates\release-x64\coomatrix.obj
 c:\dev\nssolver\bin\release-x64\mgsolver.exe
 c:\dev\nssolver\bin\release-x64\mgsolver.pdb
 c:\dev\nssolver\bin\release-x64\mgsolver.ipdb

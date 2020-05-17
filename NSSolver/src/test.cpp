@@ -11,14 +11,14 @@ int main()
 	const int Nx = 129;
 	const int Ny = 129;
 	const int Nz = 129;
-	int nLevels = 7;
+	int nLevels = 6;
 	int nx = Nx - 2;
 	int ny = Ny - 2;
 	int nz = Nz - 2;
 	int neq = nx * ny * nz;
-	std::vector<std::vector<int>> leveldata{ {129, 65, 33, 17, 9, 5, 3},
-								             {129, 65, 33, 17, 9, 5, 3},
-								             {129, 65, 33, 17, 9, 5, 3} };
+	std::vector<std::vector<int>> leveldata{ {129, 65, 33, 17, 9, 5},
+								             {129, 65, 33, 17, 9, 5},
+								             {129, 65, 33, 17, 9, 5} };
 	std::vector<CooMatrix> A = genAdata(leveldata);
 //	VECTOR_double b = computeb(neq);
 	std::vector<double> b = linspace(0.0, 1.0, neq);

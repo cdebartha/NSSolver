@@ -1,1 +1,10 @@
-﻿
+﻿  CooMatrix.cpp
+  mgutils.cpp
+  solvers.cpp
+  test.cpp
+  sputils.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 317 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  NSSolver.vcxproj -> C:\dev\NSSolver\bin\Release-x64\mgsolver.exe
