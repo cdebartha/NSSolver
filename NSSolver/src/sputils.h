@@ -12,7 +12,7 @@ std::vector<double> zeros(int N);
 
 std::vector<double> addvec(std::vector<double>& a, std::vector<double>& b);
 
-void updatevec(std::vector<double>& x, std::vector<double>& b);
+void updatevec(std::vector<double>& x, const std::vector<double>& b);
 
 CooMatrix eye(int N);
 

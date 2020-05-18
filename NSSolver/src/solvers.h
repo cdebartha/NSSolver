@@ -3,9 +3,9 @@
 #include "CooMatrix.h"
 #include <vector>
 
-double computeRMS(std::vector<double>& residual);
+double computeRMS(const std::vector<double>& residual);
 
-std::vector<double> computeResidual(CooMatrix& A, std::vector<double>& b, std::vector<double>& x);
+std::vector<double> computeResidual(CooMatrix& A, const std::vector<double>& b, const std::vector<double>& x);
 
 void gauss_seidel_update(CooMatrix& A, std::vector<double>& b, std::vector<double>& x);
 

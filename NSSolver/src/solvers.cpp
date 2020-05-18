@@ -4,7 +4,7 @@
 #include "CooMatrix.h"
 #include "sputils.h"
 
-double computeRMS(std::vector<double>& residual)
+double computeRMS(const std::vector<double>& residual)
 {
 	double rmsValue = 0.0;
 	for (int i = 0; i < residual.size(); ++i) {
@@ -14,7 +14,7 @@ double computeRMS(std::vector<double>& residual)
 	return rmsValue;
 }
 
-std::vector<double> computeResidual(CooMatrix& A, std::vector<double>& b, std::vector<double>& x)
+std::vector<double> computeResidual(CooMatrix& A, const std::vector<double>& b, const std::vector<double>& x)
 {
 	std::vector<double> residual(A.dim(0));
 //	residual.reserve(A.dim(0));
@@ -69,7 +69,7 @@ void gseidel(CooMatrix& A, std::vector<double>& b, std::vector<double>& x, int m
 //	std::vector<double> residual;
 	while (iteration < maxiters && error > tol) {
 		gauss_seidel_update(A, b, x);
-		error = computeRMS((std::vector<double>&)computeResidual(A, b, x));
+		error = computeRMS(computeResidual(A, b, x));
 		iteration = iteration + 1;
 //		std::cout << "Iteration = " << iteration << "; |Residual| = " << error << std::endl;
 	}
@@ -104,7 +104,7 @@ void mg_update(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<do
 		mg_update(A, resc, eps, P, R, level + 1, nLevels);
 	}
 
-	updatevec(x, (std::vector<double>&)(P[level]*eps));
+	updatevec(x, P[level] * eps);
 
 	//	cout << "Prolongation 1 done for level " << level << endl;
 
@@ -119,7 +119,7 @@ void mg_update(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<do
 		mg_update(A, resc2, eps, P, R, level + 1, nLevels);
 	}
 
-	updatevec(x, (std::vector<double>&)(P[level] * eps));
+	updatevec(x, P[level] * eps);
 
 	//	cout << "Prolongation 2 done for level " << level << endl;
 
@@ -149,7 +149,7 @@ void multigrid(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<do
 	while (iteration < maxiters && error > tol) {
 		mg_update(A, b, x, P, R, level0, nLevels);
 //		std::vector<double> residual = computeResidual(A[0], b, x);
-		error = computeRMS((std::vector<double>&)computeResidual(A[0], b, x));
+		error = computeRMS(computeResidual(A[0], b, x));
 		iteration = iteration + 1;
 		std::cout << "Iteration = " << iteration << "; |Residual| = " << error << std::endl;
 	}

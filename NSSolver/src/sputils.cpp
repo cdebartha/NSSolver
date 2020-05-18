@@ -64,7 +64,7 @@ std::vector<double> zeros(int N) {
 std::vector<double> addvec(std::vector<double>& a, std::vector<double>& b) 
 {
 	if (a.size() != b.size()) {
-		throw std::exception("For addition, both arrays must have same dimensions.");
+		throw "For addition, both arrays must have same dimensions.";
 	}
 	std::vector<double> sumArray;
 	sumArray.reserve(a.size());
@@ -74,10 +74,10 @@ std::vector<double> addvec(std::vector<double>& a, std::vector<double>& b)
 	return sumArray;
 }
 
-void updatevec(std::vector<double>& x, std::vector<double>& b)
+void updatevec(std::vector<double>& x, const std::vector<double>& b)
 {
 	if (x.size() != b.size()) {
-		throw std::exception("For update, both arrays must have same dimensions.");
+		throw "For update, both arrays must have same dimensions.";
 	}
 
 	for (int i = 0; i < x.size(); ++i) {
@@ -143,7 +143,7 @@ CooMatrix kron(CooMatrix& A, CooMatrix& B) {
 
 CooMatrix addmat(CooMatrix& A, CooMatrix& B) {
 	if (A.dim(0) != B.dim(0) || A.dim(1) != B.dim(1)) {
-		throw std::exception("For addition, both arrays must have same dimensions.");
+		throw "For addition, both arrays must have same dimensions.";
 	}
 	unsigned int M = A.dim(0);
 	unsigned int N = A.dim(1);
