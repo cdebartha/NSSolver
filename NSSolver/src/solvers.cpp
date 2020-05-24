@@ -75,7 +75,8 @@ void gseidel(CooMatrix& A, std::vector<double>& b, std::vector<double>& x, int m
 	}
 }
 
-void mg_update(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<double>& x, std::vector<CooMatrix>& P, std::vector<CooMatrix>& R, size_t level, size_t nLevels) {
+void mg_update(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<double>& x, std::vector<CooMatrix>& P, std::vector<CooMatrix>& R, size_t level, size_t nLevels) 
+{
 	if (level == nLevels - 2) {
 		gseidel(A[level], b, x, 10);
 	}
@@ -108,6 +109,7 @@ void mg_update(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<do
 
 	//	cout << "Prolongation 1 done for level " << level << endl;
 
+	
 	std::vector<double> resc2 = R[level] * computeResidual(A[level], b, x);
 
 	//	cout << "Restriction 2 done for level " << level << endl;
@@ -120,7 +122,7 @@ void mg_update(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<do
 	}
 
 	updatevec(x, P[level] * eps);
-
+	
 	//	cout << "Prolongation 2 done for level " << level << endl;
 
 	if (level == nLevels - 2) {
@@ -136,6 +138,7 @@ void mg_update(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<do
 		gseidel(A[level], b, x, 1);
 	}
 	//	cout << "Post-smoothing done for level " << level << endl;
+	
 }
 
 void multigrid(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<double>& x, std::vector<CooMatrix>& P, std::vector<CooMatrix>& R, int maxiters = 10000, double tol = 1e-6) {
@@ -145,12 +148,12 @@ void multigrid(std::vector<CooMatrix>& A, std::vector<double>& b, std::vector<do
 	size_t level0 = 0;
 //	std::vector<double> residual;
 	size_t nLevels = P.size() + 1;
-	std::cout << "Initiating multigrid solver for " << nLevels << " levels..." << std::endl;
+//	std::cout << "Initiating multigrid solver for " << nLevels << " levels..." << std::endl;
 	while (iteration < maxiters && error > tol) {
 		mg_update(A, b, x, P, R, level0, nLevels);
 //		std::vector<double> residual = computeResidual(A[0], b, x);
 		error = computeRMS(computeResidual(A[0], b, x));
 		iteration = iteration + 1;
-		std::cout << "Iteration = " << iteration << "; |Residual| = " << error << std::endl;
+//		std::cout << "Iteration = " << iteration << "; |Residual| = " << error << std::endl;
 	}
 }

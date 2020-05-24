@@ -1,10 +1,17 @@
-﻿  CooMatrix.cpp
+﻿  Array3D.cpp
+  CooMatrix.cpp
+  grid.cpp
   mgutils.cpp
+  rkutils.cpp
+C:\dev\NSSolver\NSSolver\src\rkutils.cpp(8,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\NSSolver\NSSolver\src\rkutils.cpp(159,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\NSSolver\NSSolver\src\rkutils.cpp(188,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\NSSolver\NSSolver\src\rkutils.cpp(189,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   solvers.cpp
   test.cpp
   sputils.cpp
   Generating code
   Previous IPDB not found, fall back to full compilation.
-  All 316 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 400 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   NSSolver.vcxproj -> C:\dev\NSSolver\bin\Release-x64\mgsolver.exe

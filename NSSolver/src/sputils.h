@@ -4,7 +4,7 @@
 
 void printmat(CooMatrix& mat);
 
-void print1D(std::vector<double>& vec);
+void print1D(const std::vector<double>& vec);
 
 std::vector<double> linspace(double start, double end, int steps);
 

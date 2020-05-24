@@ -2,7 +2,7 @@
 #include <vector>
 #include "CooMatrix.h"
 
-void print1D(std::vector<double>& vec)
+void print1D(const std::vector<double>& vec)
 {
 	std::cout << "[ " << std::flush;
 	for (auto& element : vec) {

@@ -19,15 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Array3D.cpp" />
     <ClCompile Include="src\CooMatrix.cpp" />
+    <ClCompile Include="src\grid.cpp" />
     <ClCompile Include="src\mgutils.cpp" />
+    <ClCompile Include="src\rkutils.cpp" />
     <ClCompile Include="src\solvers.cpp" />
     <ClCompile Include="src\test.cpp" />
     <ClCompile Include="src\sputils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Array3D.h" />
     <ClInclude Include="src\CooMatrix.h" />
+    <ClInclude Include="src\grid.h" />
     <ClInclude Include="src\mgutils.h" />
+    <ClInclude Include="src\rkutils.h" />
     <ClInclude Include="src\solvers.h" />
     <ClInclude Include="src\sputils.h" />
   </ItemGroup>
